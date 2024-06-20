@@ -1,0 +1,208 @@
+.nav-link {
+    font-family: fontSave1;
+    font-size: 150%;
+}
+
+
+.navbar-brand {
+    font-family: marcadorFuente;
+    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+#textnav {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 2%;
+    font-size: 100%;
+}
+
+
+#navbarNav {
+    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+}
+
+@media (min-width: 0px) and (max-width: 420px) {
+    #textnav {
+        font-size: 100%;
+        margin: 2%;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1920px) {
+    #textnav {
+        font-size: 200%;
+    }
+}
+
+/* fuentes */
+@font-face {
+    font-family: fontSave1;
+    src: url(fonts/PlaypenSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: marcadorFuente;
+    src: url(fonts/PermanentMarker-Regular.ttf);
+}
+
+
+
+#form-search {
+    scale: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+
+/* Whastapp container Style  */
+.container-wsp {
+    background-color: rgb(10, 146, 17);
+    border: 2px solid rgb(255, 255, 255);
+    position: fixed;
+    z-index: 999;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    transition: ease 0.3s;
+    animation: ificto 1.2s infinite;
+}
+
+/* Whastapp container Style when you pass the mouse over the icon  */
+.container-wsp:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Whastapp container Style size */
+.button {
+    width: 70px;
+    transition: ease 1s;
+}
+
+@keyframes ificto {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+    }
+
+    100% {
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+    }
+}
+
+/* Whastapp container Style when you pass the mouse over the icon  */
+.card-img-top:hover {
+    transform: scale(0.9);
+    transition: 1.5s;
+    opacity: 50;
+}
+
+
+.card {
+    margin: 5%;
+    padding: 2%;
+}
+
+
+.navbar-collapse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+@media (min-width: 300px) and (max-width: 999px) {
+    .navbar-collapse {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1000px) and (max-width: 2500px) {
+    .dropdown {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1300px) and (max-width: 2500px) {
+    #spanCardsProducts {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+    }
+}
+
+
+@media (min-width: 950px) and (max-width: 1299px) {
+    #spanCardsProducts {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        justify-items: center;
+
+
+    }
+}
+
+
+@media (min-width: 610px) and (max-width: 949px) {
+    #spanCardsProducts {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+
+
+    }
+}
+
+@media (min-width: 0px) and (max-width: 609px) {
+    #spanCardsProducts {
+        display: grid;
+        justify-items: center;
+    }
+}
+
+
+
+.shopping-car-item-title {
+    word-break: break-all;
+}
+
+.item-price {
+    word-break: break-all;
+}
+
+#carrito:hover {
+    scale: 1.75;
+
+}
+
+.shoppingRows {
+    border: 8px solid black;
+    margin-bottom: 10px;
+}
+
+/* fotter */
+
+@media (min-width: 0px) and (max-width: 460px) {
+
+    #sigue {
+        font-size: 50%;
+
+    }
+}
+
+#sigue {
+    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+
+}
+
+.parraf {
+    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+
+}

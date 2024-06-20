@@ -1,0 +1,63 @@
+
+# Products request
+
+###
+GET http://localhost:9000/ HTTP/1.1
+###
+GET http://localhost:9000/productos HTTP/1.1
+###
+GET http://localhost:9000/productos/producto/3 HTTP/1.1
+
+###
+POST http://localhost:9000/productos/createProduct HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_producto": "planta 4",
+    "descripción_producto": "planta decoratriva",
+    "imagen_producto": "/imagen1",
+    "inventario": 5,
+    "precio": 250000
+  }
+
+###
+PATCH  http://localhost:9000/productos/producto/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "price_before": 400000,   
+    "quantity":2
+}
+
+###
+DELETE http://localhost:9000/productos/producto/4 HTTP/1.1
+
+
+
+
+
+
+# usuarios request
+
+
+###
+POST http://localhost:9000/clientes/cliente/create HTTP/1.1
+Content-Type: application/json
+
+  {
+    "nick_usuario": "parcarman",
+    "contrasena": "789",
+    "fecha_registro": "2024-06-20"
+  }
+
+###
+PATCH  http://localhost:9000/clientes/cliente/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "contraseña": "78910", 
+     "fecha_registro": "2024-06-21"
+}
+
+###
+DELETE http://localhost:9000/clientes/cliente/3 HTTP/1.1
