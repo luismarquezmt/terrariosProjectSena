@@ -3,6 +3,7 @@ const db = require('../db');
 
 
 class UsersCtrl {
+
     constructor() {
         // this.users = [
         //     {
@@ -16,8 +17,12 @@ class UsersCtrl {
         this.getAll = this.getAll.bind(this)
     }
 
-    getAllUserControl(req, res) {
-        userModel.getAllUsers(req, res)
+    getAllUserControl (req, res) {
+        let perra =userModel.getAllUsers(req, res);
+       
+        // res.render("index", {
+        //     path: '../views'
+        // })
     }
 
     getOneUserControl(req, res) {
@@ -25,6 +30,8 @@ class UsersCtrl {
     }
     createOneUserControl(req, res) {
         userModel.createOneUser(req, res)
+        res.redirect(`../`)
+
     }
     patchOneUserControl(req, res) {
         userModel.patchOneUser(req, res)

@@ -1,19 +1,25 @@
-
-
-
 class DB {
+    constructor(userData) {
+        this.userData = userData
+    }
 
     getAllUsersFromDb(req, res) {
         req.getConnection((err, conn) => {
             if (err) return res.send(err)
             var ssql = 'select * from usuarios'
+
             conn.query(ssql, (err, rows) => {
                 if (err) return res.send(err)
-                res.json(rows)
+                return res.render("index", { data: rows })
             })
         })
-
     }
+    // processdata(rows) {
+    //     rows.map((unidades) => {
+    //         console.log(unidades);
+    //     })
+    // }
+
 
     getOneUserFromDb(req, res) {
         req.getConnection((err, conn) => {
@@ -27,15 +33,41 @@ class DB {
     }
 
     createOneUserInDb(req, res) {
+        console.log(req.body);
         req.getConnection((err, conn) => {
-            if (err) return res.send(err)
+            if (err) return console.log(err)
             let sql = "INSERT INTO usuarios SET ?"
+            this.transformDate()
+            req.body.fecha_registro = this.transformDate()
+            console.log(req.body.fecha_registro);
             conn.query(sql, [req.body], (err, rows) => {
-                if (err) return res.send(err)
-                res.send('User Add OK!')
+                if (err) return console.log(err)
+                console.log('User Add OK!')
             })
         })
     }
+
+    transformDate() {
+
+        const date = new Date();
+        // Formatear la fecha como YYYY-MM-D
+        let day = date.getDate();
+        let month = date.getMonth() + 1; // Los meses empiezan desde 0
+        const year = date.getFullYear();
+
+        if (day < 10) {
+            day = '0' + day;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+
+        return `${year}-${month}-${day}`;
+    }
+
+
+
+
 
     patchOneUserInDb(req, res) {
         req.getConnection((err, conn) => {
@@ -45,7 +77,6 @@ class DB {
                 if (err) return res.send(err)
                 res.send('User Updated OK!')
             })
-
         })
     }
 
@@ -59,7 +90,6 @@ class DB {
             })
         })
     }
-
 }
 
 module.exports = new DB()

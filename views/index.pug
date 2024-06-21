@@ -1,2 +1,35 @@
-h1 hola
-p lokas
+extends layout
+
+block content
+    h1 User Registration Form
+    form(action="/clientes/cliente/create" method="post")
+        div
+            label(for="username") Username:
+                input(type="text" id="username" name="nick_usuario" autocomplete="username" required )
+        div
+            label(for="password") Password:
+                input(type="password" id="password" name="contrasena" autocomplete="off" required)
+        button(type="submit" id="boton") Register   
+        if data
+            table
+                thead
+                    tr
+                        th ID
+                        th Username
+                        th Pasaguord
+                        th Date of Register
+                tbody
+                each user in data
+                    tr
+                        td= user.id_usuario
+                        td= user.nick_usuario
+                        td= user.contrasena
+                        td= user.fecha_registro
+
+
+        else
+            p No users found.
+
+    script(src="/scripts.js") 
+
+

@@ -3,6 +3,7 @@
 const express = require('express')
 //config the env
 require('dotenv').config()
+const bodyParser = require('body-parser');
 //database
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
@@ -29,6 +30,7 @@ const dbOptions = {
     database: process.env.DB_NAME
 }
 
+
 // añadir carpeta bootstrap
 app.use(express.static(path.join(__dirname, './node_modules/bootstrap/dist/css')));
 app.use(express.static(path.join(__dirname, './node_modules/bootstrap/dist/js')));
@@ -36,26 +38,22 @@ app.use(express.static('public'))
 app.use('/views', express.static('views'))
 
 
-// // set templates engine
-// app.set('view engine', 'pug')
+// set templates engine
+app.set('view engine', 'pug')
 
 
-// // añadir carpeta vistas 
-// app.set('views', path.join(__dirname, './views'))
-
+// añadir carpeta vistas 
+app.set('views', path.join(__dirname, './views'))
 
 
 //midlleware
+//para que lea los res y req atraves del las routas 
+app.use(express.urlencoded({ extended: true }))
+//conecta bd tipo singleton
 app.use(myconn(mysql, dbOptions, "single"))
-app.use(express.json())
+// app.use(bodyParser.json())
 app.use('/productos', productosRouter)
 app.use('/clientes', clienteRouter)
-
-//route
-// app.get('/', (req, res) => {
-//     res.send('Welcome')
-// })
-
 
 
 app.listen(app.get('port'), () => {

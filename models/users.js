@@ -1,10 +1,9 @@
 const db = require('../db');
 
 class UserModel {
-    constructor(id_usuario, nick_usuario, contraseña) {
-        this.id_usuario = id_usuario
+    constructor(nick_usuario, contrasena) {
         this.nick_usuario = nick_usuario
-        this.contraseña = contraseña
+        this.contrasena = contrasena
     }
 
     getAllUsers(req, res) {
