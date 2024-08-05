@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UFT-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
+    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
+    <!--estilo CSS-->
+    <link rel="stylesheet" href="./../resources/estiloadmin.css">
+    <!--bootstrap-->
+    <link href='../../bootstrap.min.css' rel="stylesheet">
+
+    <title>Terrarios Terraria</title>
+</head>
+
+
+
+<body>
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-md px-3 sticky-top border border-secondary-subtle"
+        style="background-color:rgb(143, 196, 73) ;">
+        <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
+            <img src="./../public/terramaz-01.png" width="60" height="60" alt="">
+            <p id="textnav"> Terrarios Terraria</p>
+        </a>
+
+        <div class="d-flex" id="form-search">
+            <input class="form-control me-2" name="search-bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+
+
+        <!-- menu collapsed -->
+        <div class="dropdown" id="dropdown-menu-collapsed">
+            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Menu
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item " href="productos0.1.html">Productos</a></li>
+                <li><a class="dropdown-item " href="../index.html">Home</a></li>
+                <li><a class="dropdown-item " href="userProfile.html">Perfil</a></li>
+                <li><a class="dropdown-item " href="admin.html">Administración</a></li>
+                <li><a class="dropdown-item " href="acceso0.2.html">Salir</a></li>
+            </ul>
+        </div>
+
+
+        <!-- menu  -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="./../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="productos0.1.html">Productos</a>
+                </li>
+                <li class="nav-item" id="name-bar">
+                    <a class="nav-link text-light" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </nav>
+
+    <!--fecth prodcuts-->
+    <div id="spanCardsProducts"></div>
+
+
+    <!--Whastapp container -->
+    <div class="container-wsp">
+
+        <a href="https://wa.me/573002732017?text=Deseo%20una%20Planta%20lok" target="_blank">
+            <img class="button" src="./../public/wsp100x100.png" alt="">
+        </a>
+    </div>
+
+    <!-- Ventana modal, por defecto no visiblel -->
+    <div id="ventanaModal" class="modal">
+        <div class="contenido-modal">
+            <span class="close">&times;</span>
+            <h1 id="textoSpan"></h1>
+        </div>
+    </div>
+
+    <!-- <button type="button" id="pru">boton</button> -->
+    <form id="dataForm">
+        <table class="table  table-striped-columns" id="table-users">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">UserName </th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+
+        </table>
+        <div id="button-edit"></div>
+    </form>
+
+
+
+    <!--Footer container -->
+    <div class="container-fluid text-center py-4" style="background-color: rgb(143, 196, 73);">
+        <div class="row">
+
+            <div class="col-5" style="font-family: fontSave1; color: aliceblue; font-size:  150%;">
+                <p id="sigue"> ¡SÍGUENOS EN NUESTRAS REDES SOCIALES! </p>
+
+                <a href="https://www.facebook.com/terrariosterraria" target="_blank">
+                    <img src="../../public/Face100x100.png" width="60" height="60" alt="">
+                </a>
+
+                <a href="https://www.instagram.com/terrariosterraria/" target="_blank">
+                    <img src="../../public/insta100x100.png" width="60" height="60" alt="">
+                </a>
+            </div>
+            <div class="col" style="font-family: fontSave1; color: aliceblue;">
+
+                <p>
+                    ¿Tenés una consulta?</p>
+                <img src="../../public/movil100x100.png" width="50" height="50" alt="">
+                <p>
+                    3002732017
+                </p>
+
+
+            </div>
+
+            <div class="col">
+                <br>
+                <img src="../../public/terramaz-01.png" width="120" height="120" alt="">
+            </div>
+            <div id="data">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../resources/admin.js"></script>
+    <script src="../bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

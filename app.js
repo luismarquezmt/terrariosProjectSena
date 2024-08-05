@@ -3,7 +3,8 @@
 const express = require('express')
 //config the env
 require('dotenv').config()
-const bodyParser = require('body-parser');
+//ahora esta en exprerss y se llama express.json
+// const bodyParser = require('body-parser');
 //database
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
@@ -34,12 +35,12 @@ const dbOptions = {
 // añadir carpeta bootstrap
 app.use(express.static(path.join(__dirname, './node_modules/bootstrap/dist/css')));
 app.use(express.static(path.join(__dirname, './node_modules/bootstrap/dist/js')));
-app.use(express.static('public'))
-app.use('/views', express.static('views'))
+// app.use(express.static('public'))
+app.use('/', express.static('views'))
 
 
-// set templates engine
-app.set('view engine', 'pug')
+// // set templates engine
+// app.set('view engine', 'pug')
 
 
 // añadir carpeta vistas 
@@ -51,7 +52,8 @@ app.set('views', path.join(__dirname, './views'))
 app.use(express.urlencoded({ extended: true }))
 //conecta bd tipo singleton
 app.use(myconn(mysql, dbOptions, "single"))
-// app.use(bodyParser.json())
+//parsea el content type y los datos al req body
+app.use(express.json())
 app.use('/productos', productosRouter)
 app.use('/clientes', clienteRouter)
 

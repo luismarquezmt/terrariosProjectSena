@@ -222,7 +222,7 @@
 
 
 @media (min-width: 769px) and (max-width: 2500px) {
-    .dropdown {
+    #dropdown-menu-collapsed {
         display: none;
     }
 }

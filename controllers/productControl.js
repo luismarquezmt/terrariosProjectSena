@@ -1,8 +1,11 @@
+const e = require("express")
 
 
 
 // get---------------- Read all products
 exports.productShowAll = (req, res) => {
+    let rol = req.rol
+    let nick_usuario = req.nick_usuario
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
 
@@ -10,7 +13,7 @@ exports.productShowAll = (req, res) => {
 
         conn.query(ssql, (err, rows) => {
             if (err) return res.send(err)
-            res.json(rows)
+            res.send({ rows, rol, nick_usuario })
         })
     })
 }
@@ -64,3 +67,5 @@ exports.productDeleteOne = (req, res) => {
         })
     })
 }
+
+

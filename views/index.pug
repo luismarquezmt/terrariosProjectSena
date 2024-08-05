@@ -9,27 +9,33 @@ block content
         div
             label(for="password") Password:
                 input(type="password" id="password" name="contrasena" autocomplete="off" required)
-        button(type="submit" id="boton") Register   
-        if data
-            table
-                thead
-                    tr
-                        th ID
-                        th Username
-                        th Pasaguord
-                        th Date of Register
-                tbody
-                each user in data
-                    tr
-                        td= user.id_usuario
-                        td= user.nick_usuario
-                        td= user.contrasena
-                        td= user.fecha_registro
+        button(type="submit" id="boton") Register 
+
+            var values = [];
+                ul
+            each val in values.length ? values : ['There are no values']
+                li= val
+
+            if data
+                table
+                    thead
+                        tr
+                            th ID
+                            th Username
+                            th Pasaguord
+                            th Date of Register
+                    tbody
+                    each user in data
+                        tr
+                            td= user.id_usuario
+                            td= user.nick_usuario
+                            td= user.contrasena
+                            td= user.fecha_registro
 
 
-        else
-            p No users found.
+            else
+                p No users found.
 
-    script(src="/scripts.js") 
+        script(src="/scripts.js") 
 
 

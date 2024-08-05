@@ -17,27 +17,48 @@ class UsersCtrl {
         this.getAll = this.getAll.bind(this)
     }
 
-    getAllUserControl (req, res) {
-        let perra =userModel.getAllUsers(req, res);
-       
-        // res.render("index", {
-        //     path: '../views'
-        // })
+    getAllUserControl(req, res) {
+        userModel.getAllUsers(req, res);
     }
 
+    comprobateUserControl(req, res) {
+        userModel.comprobateUser(req, res);
+    }
+
+
+    getDataProfileControl(req, res) {
+        userModel.getDataProfile(req, res);
+    }
+    
     getOneUserControl(req, res) {
         userModel.getOneUser(req, res)
     }
     createOneUserControl(req, res) {
         userModel.createOneUser(req, res)
-        res.redirect(`../`)
-
+        // res.redirect(`../`)
     }
+    
+    createOneUserDataProfileControl(req, res) {
+        userModel.createOneUserDataProfile(req, res)
+    }
+
     patchOneUserControl(req, res) {
         userModel.patchOneUser(req, res)
     }
+
+    patchOneUserDataProfileControl(req, res) {
+        userModel.patchOneUserDataProfile(req, res)
+    }
+
+
+
     deleteOneUserControl(req, res) {
         userModel.deleteOneUser(req, res)
+    }
+
+
+    loginAllUsers(req, res) {
+        userModel.loginUsers(req, res)
     }
 
 

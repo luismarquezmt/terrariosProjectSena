@@ -206,3 +206,119 @@
     text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
 
 }
+
+
+
+
+/* -------------------------------------------------modal texts */
+/* -------------------------------------------------modal texts */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo modal: negro con opacidad al 50% */
+.modalito {
+    display: none;
+    /* Por defecto, estará oculto */
+    position: fixed;
+    /* Posición fija */
+    z-index: 1;
+    /* Se situará por encima de otros elementos de la página*/
+    padding-top: 200px;
+    /* El contenido estará situado a 200px de la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Ancho completo */
+    height: 100%;
+    /* Algura completa */
+    overflow: auto;
+    /* Se activará el scroll si es necesario */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Color negro con opacidad del 50% */
+}
+
+/* Ventana o caja modal */
+.contenido-modal {
+    position: relative;
+    /* Relativo con respecto al contenedor -modal- */
+    background-color: white;
+    margin: auto;
+    /* Centrada */
+    padding: 20px;
+    width: 60%;
+    -webkit-animation-name: animarsuperior;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animarsuperior;
+    animation-duration: 0.5s;
+    border: 2px solid #000;
+    box-shadow: 10px 10px 5px;
+    border-radius: 1%;
+
+}
+
+/* Animación */
+
+@keyframes animarsuperior {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* Botón cerrar */
+.close {
+    color: rgb(78, 71, 71);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.close:hover,
+.close:focus {
+    scale: 110%;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#span-data-client{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: auto;
+    margin: 5px;
+    padding: 25px;
+    border-radius: 7%;
+    box-shadow: 1px 1px 3px;
+    background-color: rgb(193, 246, 187);   
+}
+
+#main-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;   
+    width: auto;
+    align-items: center;
+}
+
+@media (min-width: 0px) and (max-width: 450px) {
+    #main-control {
+        flex-direction: column;
+    }
+}
+
+
+
+.boltext {
+    font-weight: bold;
+}
