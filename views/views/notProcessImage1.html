@@ -8,15 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
-    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
+    <link rel="icon" href="../public/tico.png" type="image/x-icon">
     <!--estilo CSS-->
-    <link rel="stylesheet" href="./../resources/estiloproductos.css">
+    <link rel="stylesheet" href="../resources/estilouserProfile.css">
     <!--bootstrap-->
-    <link href='../../bootstrap.min.css' rel="stylesheet">
-
+    <link href='../bootstrap.min.css' rel="stylesheet">
     <title>Terrarios Terraria</title>
 </head>
-
 
 
 <body>
@@ -24,12 +22,12 @@
     <nav class="navbar navbar-expand-md px-3 sticky-top border border-secondary-subtle"
         style="background-color:rgb(143, 196, 73) ;">
         <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
-            <img src="./../public/terramaz-01.png" width="60" height="60" alt="">
+            <img src="../public/terramaz-01.png" width="60" height="60" alt="">
             <p id="textnav"> Terrarios Terraria</p>
         </a>
 
         <div class="d-flex" id="form-search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" id="search-bar" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </div>
 
@@ -60,61 +58,34 @@
                 <li><a class="dropdown-item " href="acceso0.2.html">Login</a></li>
             </ul>
         </div>
-
-
-        <!--offcanvaslink -->
-        <img class="containerCarrito" id="carrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight" src="../public/carrito100x100.png" height="40px"></a>
-
     </nav>
 
-    <!--fecth prodcuts-->
-    <div id="spanCardsProducts"></div>
+    <h1> Imagen no cargada </h1>
+    <h4> Tamaño maximo : 10 MB</h4>
+    <h4> Solo se permiten archivos image/jpeg image/png</h4>
+    <button class="btn btn-danger" type="button">
+        <a rel="stylesheet" href="./userProfile.html">Atras
+    </button>
 
-    <!--offcanvas Right-->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de Compras</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pl-0">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-auto">Producto</div>
-                    <div class="col-auto ">Precio</div>
-                    <div class="col-auto">Cantidad</div>
-                </div>
-                <div class="row">
-                    <br>
-                </div>
-            </div>
-            <div class="container">
-                <div class="shopping-car-items shoppingCarItemsContainer">
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>Total $ </p>
-                    </div>
-                    <div class="col">
-                        <p type="number" id="shopping-car-total">0</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="comprar-span">
-
-            </div>
-
-        </div>
-
-
-        <div class="container-wsp">
-
-
-            <a href="https://wa.me/573002732017?text=Deseo%20una%20Planta%20lok" target="_blank">
-                <img class="button" src="./../public/wsp100x100.png" alt="">
-            </a>
+    <!-- Ventana modal para textos de bD, por defecto no visiblel -->
+    <div id="ventanaModal" class="modalito">
+        <div class="contenido-modal">
+            <span class="close">&times;</span>
+            <h1 id="textoSpan"></h1>
         </div>
     </div>
+    <!-- <div id="data"></div> -->
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" id="pru">fdhfdhfd</button> -->
+
+
+
+
+
+
+
+
 
     <!--Whastapp container -->
     <div class="container-wsp">
@@ -160,14 +131,10 @@
     </div>
 
 
-    <div id="CartShoppingSpace">
-    </div>
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="../resources/userProfile.js"></script>
 </body>
 
 
-
-
-<script src="./../resources/productos.js"></script>
-<script src="../../bootstrap.bundle.min.js"></script>
 
 </html>

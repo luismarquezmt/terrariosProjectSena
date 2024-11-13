@@ -40,12 +40,12 @@
                             autocomplete="current-password" required>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-                        <p>No tienes una cuenta? <a href="registro.html">Registrate</a></p>
+                        <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+                        <!-- <label class="form-check-label" for="exampleCheck1">Recordarme</label> -->
+                        <p id="link_access">No tienes una cuenta? <a href="registro.html">Registrate</a></p>
                     </div>
-                    <div class="d-flex flex-column">
-                        <button  class=" btn btn-success mt-2">Login</button>
+                    <div class="d-flex flex-column" id="butonLogin">
+                        <button class=" btn btn-success mt-2">Login</button>
 
                         <div class="imagenes">
                             <a href="https://www.facebook.com/terrariosterraria" target="_blank"><img
@@ -69,162 +69,7 @@
         <!-- <button type="button" id="pru">fdhfdhfd</button> -->
     </div>
     <script src="../../bootstrap.bundle.min.js"></script>
-    <script>
-        //variables 
-        //texto del modal
-        let textSpan = document.getElementById("textoSpan");
-        // Ventana modal
-        let modal = document.getElementById("ventanaModal");
-        // Botón que abre el modal
-        let boton = document.getElementById("abrirModal");
-        // Hace referencia al elemento <span> que tiene la X que cierra la ventana
-        let span = document.getElementsByClassName("close")[0];
-      
-
-        // Enviar datos a la base de datos
-        document.getElementById('dataForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = {
-                nick_usuario: formData.get('nick_usuario'),
-                contrasena: formData.get('contrasena')
-            };
-            // console.log(data);
-            fetch('/clientes/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(result => {
-                    // console.log(result.token);
-                    textSpan.innerHTML = result.msg
-                    mostrarModal()
-                    if (result.msg === "Usuario no existente") {
-                        return setTimeout(() => {
-                            location.reload();
-                        }, 2000)
-                    }
-                    else if (result.msg === "Revisa tus credenciales") {
-                        return setTimeout(() => {
-                            location.reload();
-                        }, 3000)
-                    } else if (result.msg.includes("Admin")) {
-                        return setTimeout(() => {
-                            location.replace("./admin.html");
-                        }, 3000)
-                        console.log("bienvenido ");
-                    } else {
-                        return setTimeout(() => {
-                            location.replace("./productos0.1.html");
-                        }, 3000)
-                        console.log("bienvenido ");
-                    }
-                    // Recargar la página para mostrar los nuevos datos
-                    // location.reload();
-                });
-        });
-
-        // let buton = document.getElementById('pru')
-        // buton.addEventListener("click", mostrarModal)
-
-        // funcion que abre la ventana modal
-        function mostrarModal() {
-            modal.style.display = "block";
-        }
-
-        // Si el usuario hace click en la x, la ventana se cierra
-        span.addEventListener("click", function () {
-            modal.style.display = "none";
-        });
-
-        // Si el usuario hace click fuera de la ventana, se cierra.
-        window.addEventListener("click", function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        });
-
-    </script>
-    <style type="text/css">
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* Fondo modal: negro con opacidad al 50% */
-        .modal {
-            display: none;
-            /* Por defecto, estará oculto */
-            position: fixed;
-            /* Posición fija */
-            z-index: 1;
-            /* Se situará por encima de otros elementos de la página*/
-            padding-top: 200px;
-            /* El contenido estará situado a 200px de la parte superior */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Ancho completo */
-            height: 100%;
-            /* Algura completa */
-            overflow: auto;
-            /* Se activará el scroll si es necesario */
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Color negro con opacidad del 50% */
-        }
-
-        /* Ventana o caja modal */
-        .contenido-modal {
-            position: relative;
-            /* Relativo con respecto al contenedor -modal- */
-            background-color: white;
-            margin: auto;
-            /* Centrada */
-            padding: 20px;
-            width: 60%;
-            -webkit-animation-name: animarsuperior;
-            -webkit-animation-duration: 0.5s;
-            animation-name: animarsuperior;
-            animation-duration: 0.5s;
-            border: 2px solid #000;
-            box-shadow: 10px 10px 5px;
-            border-radius: 1%;
-
-        }
-
-        /* Animación */
-
-        @keyframes animarsuperior {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        /* Botón cerrar */
-        .close {
-            color: rgb(78, 71, 71);
-            float: right;
-            font-size: 40px;
-            font-weight: bold;
-
-        }
-
-        .close:hover,
-        .close:focus {
-            scale: 110%;
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <script src="../resources/access.js"></script>
 </body>
 
 </html>

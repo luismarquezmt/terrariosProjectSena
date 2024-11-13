@@ -29,7 +29,7 @@ class UsersCtrl {
     getDataProfileControl(req, res) {
         userModel.getDataProfile(req, res);
     }
-    
+
     getOneUserControl(req, res) {
         userModel.getOneUser(req, res)
     }
@@ -37,7 +37,7 @@ class UsersCtrl {
         userModel.createOneUser(req, res)
         // res.redirect(`../`)
     }
-    
+
     createOneUserDataProfileControl(req, res) {
         userModel.createOneUserDataProfile(req, res)
     }
@@ -61,6 +61,9 @@ class UsersCtrl {
         userModel.loginUsers(req, res)
     }
 
+    createOneUserFotoProfileControl(req, res) {
+        userModel.createOneFotoDataProfile(req, res)
+    }
 
 
     getAll(req, res) {

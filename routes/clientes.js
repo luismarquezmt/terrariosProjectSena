@@ -3,7 +3,7 @@ const clientRouter = Router()
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.JWT_SECRET
 
-
+const multerMiddleware = require('./multerMiddle');  // Importa el middleware
 const UsersCtrl = require('../controllers/clientControl');
 
 //clientRouter
@@ -12,13 +12,34 @@ clientRouter.get('/', verifyToken, UsersCtrl.getAllUserControl)
 // ruta para comprobrar quien es   
 clientRouter.get('/verify', verifyUser, UsersCtrl.comprobateUserControl)
 //gets
-clientRouter.get('/perfil/:id', UsersCtrl.getDataProfileControl) 
+clientRouter.get('/perfil/:id', UsersCtrl.getDataProfileControl)
 clientRouter.get('/cliente/:id', UsersCtrl.getOneUserControl)
 //post
 clientRouter.post('/login', UsersCtrl.loginAllUsers)
 clientRouter.post('/cliente/create', UsersCtrl.createOneUserControl)
 clientRouter.post('/perfil/create', UsersCtrl.createOneUserDataProfileControl)
 
+clientRouter.post('/perfil/foto', multerMiddleware.single('avatar'), UsersCtrl.createOneUserFotoProfileControl)
+
+
+// (req, res) => {
+//     console.log(req.file);
+//     console.log(req.body);
+
+//     res.sendStatus(200)
+
+//     // console.log(req.headers['content-type']);
+//     // // Información del archivo ver
+//     // const boundaries = req.headers['content-type'].split('boundary=')[1]
+//     // let body = ""
+//     // req.on('data', (chunk) => (body += chunk));
+//     // req.on('end', () => {
+//     //     body.split(boundaries).map((data, index) => console.log(index, data))
+//     //     res.sendStatus(200)
+//     // })
+//     // res.send('Archivo subido exitosamente');
+
+// });
 //update
 clientRouter.patch('/cliente/:id', UsersCtrl.patchOneUserControl)
 clientRouter.patch('/perfil/:id', UsersCtrl.patchOneUserDataProfileControl)
@@ -72,7 +93,7 @@ function verifyUser(req, res, next) {
     jwt.verify(tokenSplit, SECRET_KEY, (err, decoded) => {
         if (err) {
             req.nick_usuario = "no_identificado";
-            req.rol = "no_cliente" 
+            req.rol = "no_cliente"
             return next()
         }
         req.nick_usuario = decoded.data.nick_usuario;

@@ -5,12 +5,15 @@ let spanDataClientPwd = document.getElementById("span-data-pwd")
 let buttonChangePwd = document.getElementById("span-button-changepwd")
 let formulario = document.getElementById("dataForm")
 let token = getCookie("token");
-
+//photo BUTTONS SEND 
+let buttonImage = document.getElementById("span-button-photo")
+let formPhoto = document.getElementById("span-form-foto")
 //modal texts
 //texto del modal
 let textSpan = document.getElementById("textoSpan");
-// Ventana modal
+// Ventana modal Bd
 let modal = document.getElementById("ventanaModal");
+// Ventana modal editar datos
 let modal2 = document.getElementById("exampleModal");
 
 // Botón que abre el modal
@@ -21,14 +24,20 @@ let span = document.getElementsByClassName("close")[0];
 //traer cookie
 function getCookie(cname) {
     let name = cname + "=";
+    // se llama la cookie
     let decodedCookie = decodeURIComponent(document.cookie);
+    // se guarda en un array
     let ca = decodedCookie.split(';');
+    // / se itera sobre el array
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
+        //character at 
         while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+            // eliminar espacios en blano
+           c = c.substring(1);            
         }
         if (c.indexOf(name) == 0) {
+            //elimina la parte inicial hasta el 
             return c.substring(name.length, c.length);
         }
     }
@@ -36,7 +45,7 @@ function getCookie(cname) {
 }
 
 
-// se compruba identidad de la base 
+// se compruba identidad de la base de datos
 fetch('/clientes/verify', {
     headers: {
         'Authorization': `Bearer ${token}`
@@ -46,7 +55,7 @@ fetch('/clientes/verify', {
     .then(data => {
         let rol = data.rol
         let id_usuario = data.row[0].id_usuario
-        // console.log(id_usuario);
+        // console.log(data);
         // si  devuleve id como numero se encuentra en BD 
         if (typeof (id_usuario) === "string") {
             spanDataClient.innerHTML = `
@@ -119,7 +128,7 @@ fetch('/clientes/verify', {
     }
     )
 
-
+// llama los datos de clientes si los hay,  si no hay datos devuelve un form para llenar
 function fetchClientesData(id) {
 
     fetch(`../clientes/perfil/${id}`, {
@@ -197,7 +206,7 @@ function fetchClientesData(id) {
         Editar Datos </button>
 
                 `
-                // crea el form para los datos 
+                // crea el form para los datos del edit
                 formulario.innerHTML = `
                      <div class="row g-3 align-items-center">
                          <div class="col-auto">
@@ -306,10 +315,62 @@ function fetchClientesData(id) {
                         edad: formData.get('edad'),
                     }
                     // console.log(data)
+
                     editDataCreate(id, data)
                     modal2.style.display = "none";
 
                 })
+
+                // añade boton y vista de la imagen de usuario Y EL FORM PARA EL ENVIO 
+                formPhoto.innerHTML = `
+                 <img id="previewFoto" src=${data[0].imagen} alt="Image Profile">
+                    <br>
+                 <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#fotoModal"> Cambiar Foto </button>
+
+                <div class="modal fade" id="fotoModal" tabindex="-1" aria-labelledby="ModalLabelpwd" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>Cambiar Foto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+            
+                            <div class="modal-body">
+                                <form id="form-style" enctype="multipart/form-data" action="../clientes/perfil/foto" method="post">
+                                    <h3>Foto de Perfil</h3>
+                                    <img id="preview" src="" alt="Image Preview">
+                                    <br>
+                                    <input type="text" value=${id} name="id" style="display: none;">
+                                    <input type="file" id="imageUpload" accept="image/*" name="avatar">
+                                    <input type="submit" id="span-button-photo" value="aceptar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>                       
+               `
+                //https://developer.mozilla.org/es/docs/Web/API/File_API/Using_files_from_web_applications#selecci%C3%B3n_de_ficheros_utilizando_html
+                const preview = document.getElementById('preview')
+                const fileInput = document.getElementById('imageUpload')
+                //e agrega un evento change al campo de entrada de archivos.
+                fileInput.addEventListener('change', () => {
+                    let file = fileInput.files[0];
+                    if (file) {
+                        //Cuando se selecciona un archivo, se utiliza FileReader para leer la imagen y se establece la src del elemento <img>
+                        const reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            preview.src = e.target.result;
+                            preview.style.display = 'block'; // Mostrar la imagen
+                        }
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        preview.style.display = 'none'; // Ocultar si no hay archivo
+                    }
+                }, false)
+
 
 
             } else {
@@ -485,6 +546,7 @@ function fetchClientesData(id) {
             </div>
         </div>
              `
+            // Ventana modal editar pwd
             let modal1 = document.getElementById("pwdModal");
 
             document.getElementById("dataFormChangePwd").addEventListener('submit', (event) => {
@@ -531,8 +593,6 @@ function sendDataProfile(data) {
             return setTimeout(() => {
                 location.reload();
             }, 1500)
-
-
         })
 }
 

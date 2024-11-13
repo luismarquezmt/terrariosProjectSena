@@ -25,11 +25,6 @@ class DB {
             })
         })
     }
-    // processdata(rows) {
-    //     rows.map((unidades) => {
-    //         console.log(unidades);
-    //     })
-    // }
 
     comprobatefromUserFromToken(req, res) {
         let nick_usuario = req.nick_usuario
@@ -46,7 +41,6 @@ class DB {
             })
         })
     }
-
 
     getDataProfileFromDb(req, res) {
 
@@ -104,7 +98,6 @@ class DB {
 
     }
 
-
     createOneUserDataProfileInDb(req, res) {
         // console.log(req.body);
         req.getConnection((err, conn) => {
@@ -116,6 +109,34 @@ class DB {
             })
         })
     }
+
+    createOneUserFotoProfileInDb(req, res) {
+        //valida el middelware que se carque o el tipo 
+        // console.log(req.file);
+        // console.log(req.body);
+
+        if (req.file) {
+            const pathImages = { imagen: `..` + req.file.path.split("views")[1] }
+            const id = req.body.id
+
+            // console.log(pathImages);
+            // console.log(id);
+            req.getConnection((err, conn) => {
+                if (err) return res.send(err)
+                let sql = 'UPDATE personas set ? WHERE id_usuario= ?'
+                conn.query(sql, [pathImages, id], (err, rows) => {
+                    if (err) return res.send(err)
+                    res.redirect('../../views/userProfile.html')
+                    // res.send({ msg: 'Perfil Actualizado OK!' })
+                })
+            })
+        } else {
+            res.redirect('../../views/notProcessImage1.html')
+        }
+
+        // res.sendStatus(200)
+    }
+
 
 
     //   util
@@ -134,7 +155,7 @@ class DB {
             month = '0' + month;
         }
 
-        return `${year}-${month}-${day}`;
+        return `${year}-${month} -${day} `;
     }
 
 
@@ -238,17 +259,39 @@ class DB {
 
                     }, SECRET_KEY)
                     res.cookie("token", token)
-                    // res.set('Authorization', `Bearer ${token}`);
+                    // res.set('Authorization', `Bearer ${ token } `);
                     if (data[0].rol === "admin") {
-                        res.send({ msg: `Bienvenido Admin ${data[0].nick_usuario}`, token })
+                        res.send({ msg: `Bienvenid@ Admin ${data[0].nick_usuario} `, token })
                     } else {
-                        res.send({ msg: `Bienvenido ${data[0].nick_usuario}`, token })
+                        res.send({ msg: `Bienvenid@ ${data[0].nick_usuario} `, token })
                     }
                 } else {
                     res.send({ msg: "Revisa tus credenciales" })
                 }
             })
         })
+    }
+
+
+    // ----------------------Carrito--------------------------
+
+
+    getAllCarritosFromDb(req, res) {
+        
+        res.send('sisa')
+        // if (req.rol !== 'admin') {
+        //     return res.send({ msg: 'Access forbidden' });
+        // }
+        // let nick_usuario = req.nick_usuario
+        // req.getConnection((err, conn) => {
+        //     if (err) return res.send(err)
+        //     let ssql = 'select * from usuarios'
+
+        //     conn.query(ssql, (err, rows) => {
+        //         if (err) return res.send(err)
+        //         return res.json({ rows, nick_usuario, msg: `Bienvenido ${nick_usuario} a control de Acceso` })
+        //     })
+        // })
     }
 }
 

@@ -85,7 +85,7 @@ fetch('/clientes/verify', {
       <ul class="dropdown-menu">
           <li><a class="dropdown-item " href="../views/productos0.1.html">Productos</a></li>
           <li><a class="dropdown-item " href="./../index.html">Home</a></li>
-          <li><a class="dropdown-item " href="./../falta crear pag">Perfil</a></li>
+          <li><a class="dropdown-item " href="./../views/userProfile.html">Perfil</a></li>
           <li><a class="dropdown-item " href="../views/admin.html">Administración</a></li>
           <li><a class="dropdown-item " href="/views/acceso0.2.html">Salir</a></li>
       </ul>     

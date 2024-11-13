@@ -15,6 +15,7 @@ const colors = require('colors');
 //rutas a productos donde estan los query
 const productosRouter = require('./routes/productos');
 const clienteRouter = require('./routes/clientes');
+const carritoRouter = require('./routes/carrito');
 const path = require('path');
 
 const port_Server = process.env.PORT_SERVER
@@ -56,6 +57,7 @@ app.use(myconn(mysql, dbOptions, "single"))
 app.use(express.json())
 app.use('/productos', productosRouter)
 app.use('/clientes', clienteRouter)
+app.use('/carrito', carritoRouter)
 
 
 app.listen(app.get('port'), () => {

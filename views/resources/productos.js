@@ -24,14 +24,20 @@ let token = getCookie("token");
 //traer cookie
 function getCookie(cname) {
   let name = cname + "=";
+  // se llama la cookie
   let decodedCookie = decodeURIComponent(document.cookie);
+  // se guarda en un array
   let ca = decodedCookie.split(';');
+  // / se itera sobre el array
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
+    //character at 
     while (c.charAt(0) == ' ') {
+      // eliminar espacios en blano
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
+      //elimina la parte inicial hasta el 
       return c.substring(name.length, c.length);
     }
   }
@@ -54,8 +60,8 @@ fetch('/productos', {
     let rol = data.rol
     // console.log(rol);
 
-          // ----- CLIENTE ------------------
-      // ----- CLIENTE ------------------
+    // ----- CLIENTE ------------------
+    // ----- CLIENTE ------------------
     if (rol === "cliente") {
       loginSpan.innerHTML = `
       <div class="dropdown">
@@ -118,15 +124,22 @@ fetch('/productos', {
       //convertir number a cop para mostrar en card
       let numberOtro = new Intl.NumberFormat('co-CP', { style: 'currency', currency: 'COP' }).format(
         producto.precio)
-      document.getElementById("spanCardsProducts").innerHTML += `<div class="card" style="width: 18rem;">
-            <img src="${producto.imagen_producto}" class="card-img-top" alt="${producto.nombre_producto}">
-            <div class="card-body">
-                <h5 class="card-title">${producto.nombre_producto}</h5>
-                <p class="card-text">${producto.descripcion_producto}</p>
-                <p class="card-text">${numberOtro}</p>
-                <a href="#" class="btn btn-primary"  onclick=sum(${producto.id_producto}) )>Adicionar a carrito</a>
-            </div>
+      document.getElementById("spanCardsProducts").innerHTML += `
+            <div class="card" style="width: 18rem;">
+                <img src="${producto.imagen_producto}" class="card-img-top" alt="${producto.nombre_producto}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre_producto}</h5>
+                    <p class="card-text">${producto.descripcion_producto}</p>
+                    <p class="card-text">${numberOtro}</p>
+                    <p class="card-text">Stock: <span class="span">${producto.inventario}</span> <span id="unidad">Unidades </span> </p>
+                    <a class="btn btn-primary"  onclick=sum(${producto.id_producto}) )>Adicionar a carrito</a>
+                </div>
             </div>`
+
+      if (producto.inventario === 1) {
+        let unidadesOUni = document.getElementById('unidad')
+        unidadesOUni.innerHTML = "Unidad"
+      }
     });
   }
   )
@@ -145,16 +158,28 @@ fetch('/productos', {
 function sum(number) {
   let name = document.getElementsByClassName("btn btn-primary")[number - 1].offsetParent.children[1].children[0].innerText;
   let priceValue = document.getElementsByClassName("btn btn-primary")[number - 1].offsetParent.children[1].children[2].innerText;
+  let inventarioValue = document.getElementsByClassName("btn btn-primary")[number - 1].offsetParent.children[1].children[3].children[0].innerText;
   let imageSrc = document.getElementsByClassName("btn btn-primary")[number - 1].offsetParent.children[0].currentSrc;
   let priceNum = priceValue.replace("COP", "")
   let priceNuma = priceNum.replace(",00", "")
   let price = Number(priceNuma.replace(".", ""))
   addToTotal(price)
   addToShoppingCart(name, imageSrc, priceValue)
+  // funcionDemora()
   carritoCambioimg()
   addButtonToBuy()
-
 }
+
+async function funcionDemora() {
+  fetch()
+  setTimeout(() => {
+    console.log("mora en este proceso ");
+    setTimeout(() => {
+      location.reload()
+    }, 2500)
+  }, 1500)
+}
+
 //Suma el valor total del carro 
 function addToTotal(value) {
   totalValorShoppingCart = totalValorShoppingCart + value

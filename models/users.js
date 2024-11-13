@@ -32,6 +32,11 @@ class UserModel {
         db.createOneUserDataProfileInDb(req, res)
     }
 
+    
+    createOneFotoDataProfile(req, res) {
+        db.createOneUserFotoProfileInDb(req, res)
+    }
+
     patchOneUser(req, res) {
         db.patchOneUserInDb(req, res)
     }
