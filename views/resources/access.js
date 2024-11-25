@@ -43,12 +43,16 @@ document.getElementById('dataForm').addEventListener('submit', function (event) 
                 return setTimeout(() => {
                     location.replace("./admin.html");
                 }, 3000)
-                console.log("bienvenido ");
+
+            } else if (result.msg.includes("inactivo")) {
+                return setTimeout(() => {
+                    location.reload()
+                }, 3000)
             } else {
                 return setTimeout(() => {
                     location.replace("./productos0.1.html");
                 }, 3000)
-                console.log("bienvenido ");
+
             }
             // Recargar la página para mostrar los nuevos datos
             // location.reload();

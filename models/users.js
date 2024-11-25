@@ -18,6 +18,9 @@ class UserModel {
     getDataProfile(req, res) {
         db.getDataProfileFromDb(req, res)
     }
+    getAllDataProfile(req, res) {
+        db.getDataAllProfileFromDb(req, res)
+    }
 
 
 

@@ -13,6 +13,7 @@ clientRouter.get('/', verifyToken, UsersCtrl.getAllUserControl)
 clientRouter.get('/verify', verifyUser, UsersCtrl.comprobateUserControl)
 //gets
 clientRouter.get('/perfil/:id', UsersCtrl.getDataProfileControl)
+clientRouter.get('/perfil/clientes/all', UsersCtrl.getAllDataProfileControl)
 clientRouter.get('/cliente/:id', UsersCtrl.getOneUserControl)
 //post
 clientRouter.post('/login', UsersCtrl.loginAllUsers)
@@ -75,6 +76,8 @@ function verifyToken(req, res, next) {
         }
         req.nick_usuario = decoded.data.nick_usuario;
         req.rol = decoded.data.rol;
+        req.id_usuario = decoded.data.id_usuario
+
         next();
     });
 }
@@ -87,6 +90,7 @@ function verifyUser(req, res, next) {
     if (!token) {
         req.nick_usuario = "no_identificado";
         req.rol = "no_cliente"
+        req.id_usuario = "not_user"
         return res.send({ msg: "sdasd" })
     }
     let tokenSplit = token.split(" ")[1]
@@ -94,10 +98,12 @@ function verifyUser(req, res, next) {
         if (err) {
             req.nick_usuario = "no_identificado";
             req.rol = "no_cliente"
+            req.id_usuario = "not_user"
             return next()
         }
         req.nick_usuario = decoded.data.nick_usuario;
         req.rol = decoded.data.rol;
+        req.id_usuario = decoded.data.id_usuario
         next();
     });
 }

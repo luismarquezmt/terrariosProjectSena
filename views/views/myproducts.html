@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
-    <link rel="icon" href="../public/tico.png" type="image/x-icon">
+    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
     <!--estilo CSS-->
-    <link rel="stylesheet" href="../resources/estilouserProfile.css">
+    <link rel="stylesheet" href="./../resources/estilotransaccion.css">
     <!--bootstrap-->
-    <link href='../bootstrap.min.css' rel="stylesheet">
+    <link href='../../bootstrap.min.css' rel="stylesheet">
+
     <title>Terrarios Terraria</title>
 </head>
+
 
 
 <body>
@@ -22,7 +24,7 @@
     <nav id="navegacion-inicio" class="navbar navbar-expand-md px-3 sticky-top "
         style="background-color:rgb(72, 74, 38) ;">
         <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
-            <img id="img-nav" src="../public/terramaz-01.png" width="60" height="60" alt="">
+            <img id="img-nav" src="./../public/terramaz-01.png" width="60" height="60" alt="">
             <p id="textnav"> Terrarios Terraria</p>
         </a>
 
@@ -54,13 +56,49 @@
             </ul>
         </div>
     </nav>
-    <div id="info-error-image">
-        <h1> Imagen no cargada </h1>
-        <h4> Tamaño maximo : 10 MB</h4>
-        <h4> Solo se permiten archivos image/jpeg image/png</h4>
-        <button class="btn btn-danger" type="button">
-            <a rel="stylesheet" href="./userProfile.html">Atras
-        </button>
+
+    <div>
+        <h1 class="m-2">Mis Productos</h1>
+        <div id="mis-productos-span">
+            <div class="item-container">
+                <p class="item-title">
+                    Producto
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Nombre
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Descripción
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Precio
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Cantidad
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Fecha
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Estado
+                </p>
+            </div>
+        </div>
+        <div id="mis-productos-span-segundo">
+
+        </div>
     </div>
 
     <!-- Ventana modal para textos de bD, por defecto no visiblel -->
@@ -70,18 +108,6 @@
             <h1 id="textoSpan"></h1>
         </div>
     </div>
-    <!-- <div id="data"></div> -->
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" id="pru">fdhfdhfd</button> -->
-
-
-
-
-
-
-
-
 
     <!--Whastapp container -->
     <div class="container-wsp">
@@ -137,10 +163,11 @@
     </div>
 
 
-    <script src="../bootstrap.bundle.min.js"></script>
-    <script src="../resources/userProfile.js"></script>
 </body>
 
 
+
+<script src="./../resources/myproducts.js"></script>
+<script src="../../bootstrap.bundle.min.js"></script>
 
 </html>

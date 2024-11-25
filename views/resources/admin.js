@@ -40,7 +40,7 @@ fetch('/clientes', {
         mostrarModal()
         let menuAdmin = `
         <div class="dropdown">
-          <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+          <button id="button-mainmenu-exp" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               ${data.nick_usuario}
           </button>
@@ -69,6 +69,8 @@ fetch('/clientes', {
         let dataMain = data.rows
         const dataDiv = document.getElementById('data');
         let nameBar = document.getElementById("name-bar")
+        let nameBarComprimed = document.getElementById("button-mainmenu")
+        nameBarComprimed.innerHTML = data.nick_usuario
         nameBar.innerHTML = menuAdmin
 
         dataMain.forEach(item => {
@@ -88,12 +90,12 @@ fetch('/clientes', {
 
             <td class="id_number">
                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                        <img src="../public/config.png" alt="ico.config" id="ico-config">
                  </button>
                     <ul class="dropdown-menu">
                        <li><button  class="dropdown-item button-edit"  onclick="editParams(${item.id_usuario},'${item.nick_usuario}'  )" >Editar</button></li>
-                      <li><button type="button" class="dropdown-item" onclick="deleteUser(${item.id_usuario})">Borrar</button></li>
+                      <li><button type="button" class="dropdown-item" onclick="inactivateUser(${item.id_usuario})">Inactivar</button></li>
                       <li><button type="button" class="dropdown-item" onclick="resetPwdUser(${item.id_usuario})">Reset Password</button></li>
                    </ul>
                </div>
@@ -103,6 +105,9 @@ fetch('/clientes', {
 
 
         });
+        // automaticamente llama la funcion para comprobar si se cambio el color 
+        autoChangeColor()
+
     }).catch(err => {
         return mostrarModal()
     });
@@ -160,7 +165,7 @@ function cancelAction(id, nick) {
 
 //button that creates two other buttons with the function of sending data or canceling the action
 function editParams(id, nick) {
-    console.log(id);
+    // console.log(id);
     let rol = document.getElementById(`rol_${id}`)
     // document.getElementById(`user_${id}`).removeAttribute("disabled");
     document.getElementById(nick).removeAttribute("disabled");
@@ -192,6 +197,27 @@ function deleteUser(id) {
         headers: {
             'Content-Type': 'application/json'
         }
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            textSpan.innerHTML = result.msg
+            mostrarModal()
+        });
+    return setTimeout(() => {
+        location.reload();
+    }, 3000)
+}
+
+function inactivateUser(id) {
+    let data = { rol: 'inactivo' }
+    fetch(`../clientes/cliente/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+
     })
         .then(response => response.json())
         .then(result => {
@@ -274,4 +300,59 @@ function createElement(whatElement, attribute, whatAttribute, appendWhere) {
     let createdElement = document.createElement(whatElement)
     createdElement.setAttribute(attribute, whatAttribute)
     document.getElementById(appendWhere).appendChild(createdElement)
+}
+
+
+
+
+//llama al local storage y setea el check
+function autoChangeColor() {
+
+    let verde = 'rgb(155, 238, 0)'
+    let cafe = 'rgb(72, 74, 38)'
+    let localMemory = localStorage.getItem("colorEstado")
+
+    if (localMemory == "true") {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = true
+        nuevoClaro(verde, cafe)
+    } else {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = false
+        normalObscuro(verde, cafe)
+    }
+}
+
+// funcion que alterna los colores principales     
+function changeColor() {
+    let activator = document.getElementsByClassName('switch')[0].firstElementChild.checked
+    //claros
+    if (activator) {
+        localStorage.setItem("colorEstado", "true");
+        autoChangeColor()    //normal oscuros 
+    } else {
+        localStorage.setItem("colorEstado", "false");
+        autoChangeColor()
+    }
+}
+
+function nuevoClaro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = verde
+    document.getElementById('navegacion-inicio').style.backgroundColor = verde
+    document.getElementById('textnav').style.color = cafe
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = cafe
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = cafe
+    }
+}
+
+
+function normalObscuro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = cafe
+    document.getElementById('navegacion-inicio').style.backgroundColor = cafe
+    document.getElementById('textnav').style.color = verde
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = verde
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = verde
+    }
 }

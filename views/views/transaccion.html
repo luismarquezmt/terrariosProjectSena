@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
-    <link rel="icon" href="../public/tico.png" type="image/x-icon">
+    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
     <!--estilo CSS-->
-    <link rel="stylesheet" href="../resources/estilouserProfile.css">
+    <link rel="stylesheet" href="./../resources/estilotransaccion.css">
     <!--bootstrap-->
-    <link href='../bootstrap.min.css' rel="stylesheet">
+    <link href='../../bootstrap.min.css' rel="stylesheet">
+
     <title>Terrarios Terraria</title>
 </head>
+
 
 
 <body>
@@ -22,7 +24,7 @@
     <nav id="navegacion-inicio" class="navbar navbar-expand-md px-3 sticky-top "
         style="background-color:rgb(72, 74, 38) ;">
         <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
-            <img id="img-nav" src="../public/terramaz-01.png" width="60" height="60" alt="">
+            <img id="img-nav" src="./../public/terramaz-01.png" width="60" height="60" alt="">
             <p id="textnav"> Terrarios Terraria</p>
         </a>
 
@@ -54,13 +56,58 @@
             </ul>
         </div>
     </nav>
-    <div id="info-error-image">
-        <h1> Imagen no cargada </h1>
-        <h4> Tamaño maximo : 10 MB</h4>
-        <h4> Solo se permiten archivos image/jpeg image/png</h4>
-        <button class="btn btn-danger" type="button">
-            <a rel="stylesheet" href="./userProfile.html">Atras
-        </button>
+
+    <div id="span-data-cart-fetch">
+
+        <!--Profile Info-->
+        <div  id="span-data-client">
+        </div>
+
+        <!--Products Cart Info-->
+
+
+
+        <div class="container" id="span-data-cart">
+            <div class="container text-center">
+                <div class="row">
+                    <h4> Resumen de Compra</h4>
+                </div>
+            </div>
+            <div class="shopping-car-items shoppingCarItemsContainer">
+            </div>
+            <div class="row" id="valor-span">
+                <div class="col">
+                    <p id="bol">Valor total $ </p>
+                </div>
+                <div class="col">
+                    <p type="number" id="shopping-car-total">0</p>
+                </div>
+            </div>
+
+            <div id="confirmar-compra">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal data user -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Perfil de usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="modal-body">
+                    <form id="dataForm">
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- Ventana modal para textos de bD, por defecto no visiblel -->
@@ -70,18 +117,6 @@
             <h1 id="textoSpan"></h1>
         </div>
     </div>
-    <!-- <div id="data"></div> -->
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" id="pru">fdhfdhfd</button> -->
-
-
-
-
-
-
-
-
 
     <!--Whastapp container -->
     <div class="container-wsp">
@@ -137,10 +172,12 @@
     </div>
 
 
-    <script src="../bootstrap.bundle.min.js"></script>
-    <script src="../resources/userProfile.js"></script>
 </body>
 
 
+
+
+<script src="./../resources/transaccion.js"></script>
+<script src="../../bootstrap.bundle.min.js"></script>
 
 </html>

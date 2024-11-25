@@ -21,17 +21,17 @@
 
 <body>
     <!--navigation bar-->
-    <nav class="navbar navbar-expand-md px-3 sticky-top border border-secondary-subtle"
-        style="background-color:rgb(143, 196, 73) ;">
+    <nav id="navegacion-inicio" class="navbar navbar-expand-md px-3 sticky-top "
+        style="background-color:rgb(72, 74, 38) ;">
         <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
-            <img src="./../public/terramaz-01.png" width="60" height="60" alt="">
+            <img id="img-nav" src="./../public/terramaz-01.png" width="60" height="60" alt="">
             <p id="textnav"> Terrarios Terraria</p>
         </a>
 
-        <div class="d-flex" id="form-search">
+        <!-- <div class="d-flex" id="form-search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </div>
+            <button id="button-mainmenu-search" class="btn btn-outline-success" type="submit">Search</button>
+        </div> -->
 
         <!-- menu no collapsed -->
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -50,8 +50,8 @@
 
         <!-- menu  collapsed -->
         <div class="dropdown" id="dropdown-menu-collapsed">
-            <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 Menu
             </button>
             <ul class="dropdown-menu">
@@ -100,8 +100,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="comprar-span">
+            <div class="container container-comprar">
+                <div class="row" id="comprar-span">
 
+                </div>
             </div>
 
         </div>
@@ -116,6 +118,7 @@
         </div>
     </div>
 
+
     <!--Whastapp container -->
     <div class="container-wsp">
 
@@ -125,7 +128,7 @@
     </div>
 
     <!--Footer container -->
-    <div class="container-fluid text-center py-4" style="background-color: rgb(143, 196, 73);">
+    <div id="navegacion-fin" class="container-fluid text-center py-4" style="background-color:rgb(72, 74, 38);">
         <div class="row">
 
             <div class="col-5" style="font-family: fontSave1; color: aliceblue; font-size:  150%;">
@@ -142,7 +145,7 @@
             <div class="col" style="font-family: fontSave1; color: aliceblue;">
 
                 <p class="parraf">
-                    ¿Tenés una consulta?</p>
+                    ¿Tienés una consulta?</p>
                 <img src="./../public/movil100x100.png" width="50" height="50" alt="">
                 <p class="parraf">
                     3002732017
@@ -151,9 +154,19 @@
 
             </div>
 
+            <!-- logo terraria -->
             <div class="col">
                 <br>
                 <img src="./../public/terramaz-01.png" width="120" height="120" alt="">
+            </div>
+
+            <!-- switch para el cambio de color -->
+            <div class="col">
+                <label class="switch">
+                    <input type="checkbox" onclick="changeColor()">
+                    <span class="slider round"></span>
+                </label>
+                <h6 style="color: aliceblue;">Color</h6>
             </div>
 
         </div>

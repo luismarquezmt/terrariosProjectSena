@@ -29,6 +29,9 @@ class UsersCtrl {
     getDataProfileControl(req, res) {
         userModel.getDataProfile(req, res);
     }
+    getAllDataProfileControl(req, res) {
+        userModel.getAllDataProfile(req, res);
+    }
 
     getOneUserControl(req, res) {
         userModel.getOneUser(req, res)

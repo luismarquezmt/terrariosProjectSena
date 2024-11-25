@@ -1,0 +1,810 @@
+/* //navbar styles ---------------------------------*/
+/* //navbar styles ---------------------------------*/
+/* //navbar styles ---------------------------------*/
+
+
+
+.nav-link {
+    font-family: fontSave1;
+    font-size: 150%;
+}
+
+
+.navbar-brand {
+    font-family: TimeSplittersFuente;
+    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+#textnav {
+    padding-left: 10%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 2%;
+    font-size: 100%;
+    font-size: 200%;
+    color: rgb(155, 238, 0);
+}
+
+#button-mainmenu-search {
+    color: black;
+    border: 2px solid black;
+}
+
+#button-mainmenu-search:hover {
+    background-color: #9BEE00;
+}
+
+#button-mainmenu {
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
+}
+
+
+
+/* /--mid app -------------------------------------------*/
+/* /--mid app -------------------------------------------*/
+/* /--mid app -------------------------------------------*/
+
+#add-button {
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
+}
+
+#span-data-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 400px;
+    margin: 5px;
+    padding: 25px;
+    border-radius: 7%;
+    box-shadow: 1px 1px 3px;
+    background-color: rgb(193, 246, 187);
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+    #span-data-client {
+        width: 300px;
+    }
+}
+
+#col-name {
+    min-width: 100px;
+    max-width: 110px;
+}
+
+#bol {
+    font-weight: bold;
+}
+
+#confirmar-buton {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+#span-data-cart-fetch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 900px) and (max-width: 1920px) {
+    #span-data-cart-fetch {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+#span-data-cart {
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: auto;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 7%;
+    box-shadow: 1px 1px 3px;
+    background-color: rgb(193, 246, 187);
+}
+
+
+
+
+#valor-span {
+    justify-self: center;
+}
+
+/* .shopping-car-items{
+    justify-self: center;
+} */
+
+#button-mainmenu-exp {
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
+}
+
+#img-nav {
+    margin-left: 25%;
+    box-shadow: 25px 23px 6px -9px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 0px) and (max-width: 420px) {
+    #textnav {
+        font-size: 150%;
+        margin: 2%;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1920px) {
+    #textnav {
+        font-size: 250%;
+    }
+}
+
+/* fuentes */
+@font-face {
+    font-family: fontSave1;
+    src: url(fonts/PlaypenSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: marcadorFuente;
+    src: url(fonts/PermanentMarker-Regular.ttf);
+}
+
+@font-face {
+    font-family: TimeSplittersFuente;
+    src: url(fonts/Future\ TimeSplitters.otf);
+}
+
+
+/* sombra en la barra de navegacion superior */
+#navbarNav {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+/* sombra en la barra de navegacion superior colapsada*/
+#dropdown-menu-collapsed {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+.navbar-nav {
+    align-items: center;
+    justify-content: center;
+}
+
+#navegacion-inicio {
+    border: 1px solid #232323;
+}
+
+
+#form-search {
+    scale: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+/* ------------------------botton style ----------------------------------------- */
+/* ------------------------botton style ----------------------------------------- */
+/* ------------------------botton style ----------------------------------------- */
+/* ------------------------botton style ----------------------------------------- */
+/* Whastapp container Style  */
+.container-wsp {
+    background-color: rgb(10, 146, 17);
+    border: 2px solid rgb(255, 255, 255);
+    position: fixed;
+    z-index: 999;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    transition: ease 0.3s;
+    animation: ificto 1.2s infinite;
+}
+
+/* Whastapp container Style when you pass the mouse over the icon  */
+.container-wsp:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Whastapp container Style size */
+.button {
+    width: 70px;
+    transition: ease 1s;
+}
+
+@keyframes ificto {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+    }
+
+    100% {
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+    }
+}
+
+/* Whastapp container Style when you pass the mouse over the icon  */
+.card-img-top:hover {
+    transform: scale(0.9);
+    transition: 1.5s;
+    opacity: 50;
+}
+
+
+.card {
+    margin: 5%;
+    padding: 2%;
+}
+
+
+.navbar-collapse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+@media (min-width: 300px) and (max-width: 768px) {
+    .navbar-collapse {
+        display: none;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 2500px) {
+    #dropdown-menu-collapsed {
+        display: none;
+    }
+}
+
+
+
+
+.shopping-car-item-title {
+    word-break: break-all;
+}
+
+.item-price {
+    word-break: break-all;
+}
+
+#carrito:hover {
+    scale: 1.75;
+
+}
+
+.shoppingRows {
+    border: 8px solid black;
+    margin-bottom: 10px;
+}
+
+/* fotter */
+
+/* siguenos estilo sombra texto */
+@media (min-width: 0px) and (max-width: 460px) {
+    #sigue {
+        font-size: 50%;
+        text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+        ;
+    }
+}
+
+/* resto del footer */
+.container-fluid {
+    color: rgb(155, 238, 0);
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+
+.parraf {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+.shoppingItemCarItemTitle {
+    font-size: small;
+}
+
+.shoppingCarItemPrice {
+    font-size: x-small;
+    width: 100px;
+}
+
+.shoppingCarItemQuantity {
+    font-size: small;
+    width: 35px;
+}
+
+
+.shoppingCarItemContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-comprar {
+    display: flex;
+    justify-content: center;
+}
+
+#ultimo-enlace {
+    width: 300px;
+}
+
+@media (min-width: 0px) and (max-width: 250px) {
+    #ultimo-enlace {
+        width: 150px;
+    }
+}
+
+#comprar-span {
+    width: auto
+}
+
+
+
+
+/* //pagina de all productos */
+/* //pagina de all productos */
+/* //pagina de all productos */
+
+#all-productos-span {
+    display: grid;
+    grid-template-columns: 5% 17.5% 17.5% 10% 5% 20.5% 24.5%;
+    justify-items: center;
+    border: 2px solid black;
+    margin: 1%;
+}
+
+#all-productos-span-segundo {
+    display: grid;
+    grid-template-columns: 5% 17.5% 17.5% 10% 10% 17.5% 22.5%;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 1%;
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    #all-productos-span-segundo {
+        margin-bottom: 25%;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    #all-productos-span {
+        margin-top: 25%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+    #all-productos-span-segundo {
+        margin-bottom: 15%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+    #all-productos-span {
+        margin-top: 15%;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 2500px) {
+    #all-productos-span-segundo {
+        margin-bottom: 10%;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 2500px) {
+    #all-productos-span {
+        margin-top: 10%;
+    }
+}
+
+.button-send-status {
+    font-size: xx-small;
+    margin: 0%;
+    padding: 5%;
+    background-color: #9BEE00;
+    color: #000;
+    border: 2px solid black;
+    border-radius: 15%;
+}
+
+.button-send-status:hover{
+    background-color: #568500;
+}
+
+.select-container {
+    font-size: xx-small;
+    margin: 0%;
+    padding: 1%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+@media (min-width: 650px) and (max-width: 2500px) {
+    .select-container {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 2500px) {
+    .button-send-status {
+        font-size: medium;
+    }
+}
+
+
+
+
+/* //pagina de mis productos */
+/* //pagina de mis productos */
+/* //pagina de mis productos */
+
+#mis-productos-span {
+    display: grid;
+    grid-template-columns: 15% 13% 24% 13% 10% 9% 15%;
+    justify-items: center;
+    border: 2px solid black;
+    margin: 1%;
+}
+.grid-item-container {
+    display: grid;
+    /* grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%; */
+    grid-template-columns:  50% 40%;
+    grid-template-rows: 100%;
+    justify-items: center;
+    border: 1px solid black;
+    margin: 1%;
+    font-size: x-small;
+}
+
+@media (min-width: 650px) and (max-width: 2500px) {
+    .grid-item-container {
+        font-size: medium;
+    }
+}
+
+#mis-productos-span-segundo {
+    display: grid;
+    grid-template-columns: 15% 13% 24% 13% 10% 9% 15%;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 1%;
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    #mis-productos-span-segundo {
+        margin-bottom: 25%;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    #mis-productos-span {
+        margin-top: 25%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+    #mis-productos-span-segundo {
+        margin-bottom: 15%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+    #mis-productos-span {
+        margin-top: 15%;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 2500px) {
+    #mis-productos-span-segundo {
+        margin-bottom: 10%;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 2500px) {
+    #mis-productos-span {
+        margin-top: 10%;
+    }
+}
+
+.item-textos {
+    font-size: small;
+}
+
+
+.item-textos-largos {
+    font-size: x-small;
+}
+.item-textos-largos-id {
+    font-size: x-small;
+}
+
+
+/* Popup container */
+/* Popup container */
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 360px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 23%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* popup fin ------------------ */
+  /* popup fin ------------------ */
+  /* popup fin ------------------ */
+
+@media (min-width: 0px) and (max-width: 499px) {
+    .item-textos-largos {
+        font-size: xx-small;
+    }
+}
+@media (min-width: 900px) and (max-width: 2500px) {
+    .item-textos-largos {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    .item-textos-largos-id {
+        font-size: xx-small;
+    }
+}
+@media (min-width: 900px) and (max-width: 2500px) {
+    .item-textos-largos-id {
+        font-size: medium;
+    }
+}
+
+
+@media (min-width: 0px) and (max-width: 499px) {
+    .item-textos {
+        font-size: x-small;
+    }
+}
+
+
+@media (min-width: 900px) and (max-width: 2500px) {
+    .item-textos {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 499px) {
+    .item-title {
+        font-size: x-small;
+    }
+}
+
+.item-title {
+    margin: 2%;
+    font-weight: bold;
+}
+
+
+
+/* swicth de cambio de color */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(155, 238, 0);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: rgb(72, 74, 38);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+
+
+/* -------------------------------------------------modal texts */
+/* -------------------------------------------------modal texts */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo modal: negro con opacidad al 50% */
+.modalito {
+    display: none;
+    /* Por defecto, estará oculto */
+    position: fixed;
+    /* Posición fija */
+    z-index: 1;
+    /* Se situará por encima de otros elementos de la página*/
+    padding-top: 200px;
+    /* El contenido estará situado a 200px de la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Ancho completo */
+    height: 100%;
+    /* Algura completa */
+    overflow: auto;
+    /* Se activará el scroll si es necesario */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Color negro con opacidad del 50% */
+}
+
+/* Ventana o caja modal */
+.contenido-modal {
+    position: relative;
+    /* Relativo con respecto al contenedor -modal- */
+    background-color: white;
+    margin: auto;
+    /* Centrada */
+    padding: 20px;
+    width: 60%;
+    -webkit-animation-name: animarsuperior;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animarsuperior;
+    animation-duration: 0.5s;
+    border: 2px solid #000;
+    box-shadow: 10px 10px 5px;
+    border-radius: 1%;
+
+}
+
+/* Animación */
+
+@keyframes animarsuperior {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* Botón cerrar */
+.close {
+    color: rgb(78, 71, 71);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.close:hover,
+.close:focus {
+    scale: 110%;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* /////// aqui acaba el modal hecho en css  -------------------------*/
+/* /////// aqui acaba el modal hecho en css  -------------------------*/
+/* /////// aqui acaba el modal hecho en css  -------------------------*/

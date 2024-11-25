@@ -39,18 +39,18 @@ fetch('/clientes/verify', {
         if (rol === "cliente") {
             loginSpan.innerHTML = `
       <div class="dropdown">
-          <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+          <button id="button-mainmenu-exp" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               ${data.nick_usuario}
           </button>
           <ul class="dropdown-menu">
               <li><a class="dropdown-item " href="../views/userProfile.html">Perfil</a></li>
-              <li><a class="dropdown-item " href="../views/productos0.1.html">Mis Productos</a></li>
+              <li><a class="dropdown-item " href="../views/myproducts.html">Mis Productos</a></li>
               <li><a class="dropdown-item " href="../views/acceso0.2.html">Salir</a></li>
           </ul>
       </div>`
             menuSpanCollapsed.innerHTML = `
-      <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+      <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
       aria-expanded="false">
       ${data.nick_usuario}
       </button>
@@ -58,7 +58,7 @@ fetch('/clientes/verify', {
           <li><a class="dropdown-item " href="../views/productos0.1.html">Productos</a></li>
           <li><a class="dropdown-item " href="./../index.html">Home</a></li>
           <li><a class="dropdown-item " href="../views/userProfile.html">Perfil</a></li>
-          <li><a class="dropdown-item " href="../views/productos0.1.html">Mis Productos</a></li>
+          <li><a class="dropdown-item " href="../views/myproducts.html">Mis Productos</a></li>
           <li><a class="dropdown-item " href="/views/acceso0.2.html">Salir</a></li>
       </ul>     
       `
@@ -67,18 +67,18 @@ fetch('/clientes/verify', {
         } else if (rol === "admin") {
             loginSpan.innerHTML = `
       <div class="dropdown">
-          <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+          <button  id="button-mainmenu-exp" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               ${data.nick_usuario}
           </button>
           <ul class="dropdown-menu">
-              <li><a class="dropdown-item " href="./../falta crear pag.html">Perfil</a></li>
+              <li><a class="dropdown-item " href="../views/userProfile.html">Perfil</a></li>
               <li><a class="dropdown-item " href="../views/admin.html">Administración</a></li>
               <li><a class="dropdown-item " href="../views/acceso0.2.html">Salir</a></li>
           </ul>
       </div>`
             menuSpanCollapsed.innerHTML = `
-      <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+      <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
       aria-expanded="false">
       ${data.nick_usuario}
       </button>
@@ -91,5 +91,65 @@ fetch('/clientes/verify', {
       </ul>     
        `
         }
+        // automaticamente llama la funcion para comprobar si se cambio el color 
+        autoChangeColor()
     }
     )
+
+
+
+
+
+//llama al local storage y setea el check
+function autoChangeColor() {
+
+    let verde = 'rgb(155, 238, 0)'
+    let cafe = 'rgb(72, 74, 38)'
+    let localMemory = localStorage.getItem("colorEstado")
+
+    if (localMemory == "true") {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = true
+        nuevoClaro(verde, cafe)
+    } else {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = false
+        normalObscuro(verde, cafe)
+    }
+}
+
+// funcion que alterna los colores principales     
+function changeColor() {
+    let activator = document.getElementsByClassName('switch')[0].firstElementChild.checked
+    //claros
+    if (activator) {
+        localStorage.setItem("colorEstado", "true");
+        autoChangeColor()    //normal oscuros 
+    } else {
+        localStorage.setItem("colorEstado", "false");
+        autoChangeColor()
+    }
+}
+function nuevoClaro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = verde
+    document.getElementById('navegacion-inicio').style.backgroundColor = verde
+    document.getElementById('textnav').style.color = cafe
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = cafe
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = cafe
+    }
+}
+
+
+function normalObscuro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = cafe
+    document.getElementById('navegacion-inicio').style.backgroundColor = cafe
+    document.getElementById('textnav').style.color = verde
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = verde
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = verde
+    }
+}
+
+
+

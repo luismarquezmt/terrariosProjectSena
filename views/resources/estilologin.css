@@ -17,13 +17,43 @@ body {
     flex-direction: column;
 }
 
+@media (min-width: 0px) and (max-width: 768px) {
+    #buton-login {
+        background-color: rgb(155, 238, 0);
+        border: 2px solid black;
+        color: rgb(72, 74, 38);
+        font-weight: bold;        
+    }
+}
+
+@media (min-width: 769px) and (max-width: 2200px) {
+    #buton-login {
+        background-color: rgb(72, 74, 38);
+        border: 2px solid black;
+    }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+    #buton-register {
+        background-color: rgb(155, 238, 0);
+        border: 2px solid black;
+        color: rgb(72, 74, 38);
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 2200px) {
+    #buton-register {
+        background-color: rgb(72, 74, 38);
+        border: 2px solid black;
+    }
+}
 
 
 /* altura de contenedor */
 
 @media (min-height: 0px) and (max-height: 769px) {
     .ontainer-xxl {
-        background-color: rgb(143, 196, 73);
+        background-color: rgb(155, 238, 0);
         margin: 0%;
         padding: 2%;
         justify-items: flex-start;
@@ -57,7 +87,7 @@ body {
 
 
 .ontainer-xxl {
-    background-color: rgb(19, 34, 0);
+    background-color: rgb(155, 238, 0);
     margin: 0%;
     padding: 2%;
     justify-items: flex-start;
@@ -73,7 +103,7 @@ body {
 
 @media (min-width: 0px) and (max-width: 799px) {
     .ontainer-xxl {
-        background-color: rgb(126, 163, 77);
+        background-color: rgb(72, 74, 38);
         margin: 0%;
         padding: 2%;
         justify-items: flex-start;
@@ -105,7 +135,7 @@ body {
     }
 }
 
-#link_access{
+#link_access {
     display: flex;
     justify-content: flex-end;
     font-size: small;
@@ -114,6 +144,7 @@ body {
 
 /* formlogin */
 .formlogin {
+    background-color: aliceblue;
     position: relative;
     padding: 10%;
     border: 3px solid rgb(44, 44, 44);
@@ -126,7 +157,6 @@ body {
 
 @media (min-width: 0px) and (max-width:450px) {
     .formlogin {
-        background-color: aliceblue;
         padding: 7%;
         margin: 2%;
         border: 3px solid black;

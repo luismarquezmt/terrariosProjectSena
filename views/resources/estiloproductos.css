@@ -5,7 +5,7 @@
 
 
 .navbar-brand {
-    font-family: marcadorFuente;
+    font-family: TimeSplittersFuente;
     text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
     display: flex;
     flex-direction: row;
@@ -14,28 +14,59 @@
 }
 
 #textnav {
+    padding-left: 10%;
     display: flex;
     align-self: center;
     justify-content: center;
     margin: 2%;
     font-size: 100%;
+    font-size: 200%;
+    color: rgb(155, 238, 0);
+}
+
+#button-mainmenu-search{
+    color: black;
+    border: 2px solid black; 
+}
+
+#button-mainmenu-search:hover{
+    background-color: #9BEE00;
+}
+
+#button-mainmenu {
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
+}
+#add-button{
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
 }
 
 
-#navbarNav {
-    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+
+#button-mainmenu-exp {
+    background-color: rgb(155, 238, 0);
+    color: black;
+    border: 2px solid black;
+}
+
+#img-nav {
+    margin-left: 25%;
+    box-shadow: 25px 23px 6px -9px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 0px) and (max-width: 420px) {
     #textnav {
-        font-size: 100%;
+        font-size: 150%;
         margin: 2%;
     }
 }
 
 @media (min-width: 900px) and (max-width: 1920px) {
     #textnav {
-        font-size: 200%;
+        font-size: 250%;
     }
 }
 
@@ -50,6 +81,30 @@
     src: url(fonts/PermanentMarker-Regular.ttf);
 }
 
+@font-face {
+    font-family: TimeSplittersFuente;
+    src: url(fonts/Future\ TimeSplitters.otf);
+}
+
+
+/* sombra en la barra de navegacion superior */
+#navbarNav {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+/* sombra en la barra de navegacion superior colapsada*/
+#dropdown-menu-collapsed {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+.navbar-nav {
+    align-items: center;
+    justify-content: center;
+}
+
+#navegacion-inicio {
+    border: 1px solid #232323;
+}
 
 
 #form-search {
@@ -130,26 +185,24 @@
     }
 }
 
-
+/* //tamaño grande ajuste grid productos */
 @media (min-width: 1300px) and (max-width: 2500px) {
     #spanCardsProducts {
         display: grid;
-        grid-template-columns: 20% 20% 20% 20%;
+        grid-template-columns: 25% 25% 25% 25% ;
     }
 }
 
-
+/* //tamaño medio  ajuste grid productos */
 @media (min-width: 950px) and (max-width: 1299px) {
     #spanCardsProducts {
         display: grid;
         grid-template-columns: 33% 33% 33%;
         justify-items: center;
-
-
     }
 }
 
-
+/* //tamaño grande pequeño grid productos */
 @media (min-width: 610px) and (max-width: 949px) {
     #spanCardsProducts {
         display: grid;
@@ -160,6 +213,7 @@
     }
 }
 
+/* //tamaño pequeño ajuste grid productos */
 @media (min-width: 0px) and (max-width: 609px) {
     #spanCardsProducts {
         display: grid;
@@ -189,20 +243,129 @@
 
 /* fotter */
 
+/* siguenos estilo sombra texto */
 @media (min-width: 0px) and (max-width: 460px) {
-
     #sigue {
         font-size: 50%;
-
+        text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+        ;
     }
 }
 
-#sigue {
-    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+/* resto del footer */
+.container-fluid {
+    color: rgb(155, 238, 0);
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+
+.parraf {
+    text-shadow: 0 0 3px #9BEE00, 0 0 5px #19a611;
+}
+
+.shoppingItemCarItemTitle {
+    font-size: small;
+}
+
+.shoppingCarItemPrice {
+    font-size: x-small;
+    width: 100px;
+}
+
+.shoppingCarItemQuantity {
+    font-size: small;
+    width: 35px;
+}
+
+
+.shoppingCarItemContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
-.parraf {
-    text-shadow: 0 0 3px #10230e, 0 0 5px #19a611;
+.container-comprar {
+    display: flex;
+    justify-content: center;
+}
 
+#ultimo-enlace {
+    width: 300px;
+}
+
+@media (min-width: 0px) and (max-width: 250px) {
+    #ultimo-enlace {
+        width: 150px;
+    }
+}
+
+#comprar-span {
+    width: auto
+}
+
+
+/* swicth de cambio de color */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(155, 238, 0);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: rgb(72, 74, 38);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }

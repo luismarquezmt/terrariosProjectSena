@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
-    <link rel="icon" href="../public/tico.png" type="image/x-icon">
+    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
     <!--estilo CSS-->
-    <link rel="stylesheet" href="../resources/estilouserProfile.css">
+    <link rel="stylesheet" href="./../resources/estilogestion.css">
     <!--bootstrap-->
-    <link href='../bootstrap.min.css' rel="stylesheet">
+    <link href='../../bootstrap.min.css' rel="stylesheet">
+
     <title>Terrarios Terraria</title>
 </head>
+
 
 
 <body>
@@ -22,7 +24,7 @@
     <nav id="navegacion-inicio" class="navbar navbar-expand-md px-3 sticky-top "
         style="background-color:rgb(72, 74, 38) ;">
         <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
-            <img id="img-nav" src="../public/terramaz-01.png" width="60" height="60" alt="">
+            <img id="img-nav" src="./../public/terramaz-01.png" width="60" height="60" alt="">
             <p id="textnav"> Terrarios Terraria</p>
         </a>
 
@@ -54,14 +56,81 @@
             </ul>
         </div>
     </nav>
-    <div id="info-error-image">
-        <h1> Imagen no cargada </h1>
-        <h4> Tamaño maximo : 10 MB</h4>
-        <h4> Solo se permiten archivos image/jpeg image/png</h4>
-        <button class="btn btn-danger" type="button">
-            <a rel="stylesheet" href="./userProfile.html">Atras
-        </button>
+
+    <div id="title-span">
     </div>
+    <div id="all-productos-span">
+    </div>
+
+    <!-- Modal add product -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel"> Adicionar datos de producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addDataForm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal pregunta Relamende desea si o no  -->
+    <div class="modal fade" id="deseaModal" tabindex="-1" aria-labelledby="deseaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deseaModalLabel"> Realmente desea eliminar este producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="deseaDataForm">
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Edit product -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Datos de producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="dataForm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Product Photo-->
+    <div class="modal fade" id="fotoModal" tabindex="-1" aria-labelledby="ModalLabelpwd" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Cambiar Foto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="span-form-foto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Ventana modal para textos de bD, por defecto no visiblel -->
     <div id="ventanaModal" class="modalito">
@@ -70,18 +139,6 @@
             <h1 id="textoSpan"></h1>
         </div>
     </div>
-    <!-- <div id="data"></div> -->
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" id="pru">fdhfdhfd</button> -->
-
-
-
-
-
-
-
-
 
     <!--Whastapp container -->
     <div class="container-wsp">
@@ -137,10 +194,11 @@
     </div>
 
 
-    <script src="../bootstrap.bundle.min.js"></script>
-    <script src="../resources/userProfile.js"></script>
 </body>
 
 
+
+<script src="./../resources/gestionproductos.js"></script>
+<script src="../../bootstrap.bundle.min.js"></script>
 
 </html>

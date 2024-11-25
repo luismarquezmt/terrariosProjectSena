@@ -1,13 +1,15 @@
 const { Router } = require('express');
-
+const multerMiddlewareProducts = require('./multerMiddle');  // Importa el middleware
 const productRouter = Router()
 const { productShowAll,
     productShowOne,
     productCreateOne,
     productUpdateOne,
     productDeleteOne,
-    solution } = require('../controllers/productControl');
-const { getal } = require('../controllers/clientControl');
+    productIdShow,
+    createOneDataFotoProductInDb,
+    patchOneDataFotoProductInDb
+} = require('../controllers/productControl');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.JWT_SECRET
 
@@ -23,16 +25,23 @@ productRouter.get('/rendera', (req, res) => {
 // get---------------- Read all products
 productRouter.get('/', verifyToken, productShowAll)
 
+// get---------------- Read all id Products
+productRouter.get('/get-id', productIdShow)
+
 
 //  get----------------read one product
 productRouter.get(`/producto/:number`, productShowOne)
 
 // insert --------------- insertar
-productRouter.post('/createProduct', productCreateOne)
+productRouter.post('/createProduct', multerMiddlewareProducts.single('avatar'), createOneDataFotoProductInDb)
+
+// insert --------------- insertar
+productRouter.post('/createoneproducto', productCreateOne)
 
 
 //update --------------- actualizar
 productRouter.patch('/producto/:number', productUpdateOne)
+
 
 
 //delete --------------- eliminar
@@ -46,6 +55,7 @@ function verifyToken(req, res, next) {
     if (!token) {
         req.nick_usuario = "no_identificado";
         req.rol = "no_cliente"
+        req.id_usuario = "not_user"
         return next()
     }
     let tokenSplit = token.split(" ")[1]
@@ -53,10 +63,12 @@ function verifyToken(req, res, next) {
         if (err) {
             req.nick_usuario = "no_identificado";
             req.rol = "no_cliente"
+            req.id_usuario = "not_user"
             return next()
         }
         req.nick_usuario = decoded.data.nick_usuario;
         req.rol = decoded.data.rol;
+        req.id_usuario = decoded.data.id_usuario
         next();
     });
 }

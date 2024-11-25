@@ -8,6 +8,7 @@ let token = getCookie("token");
 //photo BUTTONS SEND 
 let buttonImage = document.getElementById("span-button-photo")
 let formPhoto = document.getElementById("span-form-foto")
+
 //modal texts
 //texto del modal
 let textSpan = document.getElementById("textoSpan");
@@ -15,7 +16,6 @@ let textSpan = document.getElementById("textoSpan");
 let modal = document.getElementById("ventanaModal");
 // Ventana modal editar datos
 let modal2 = document.getElementById("exampleModal");
-
 // Botón que abre el modal
 let boton = document.getElementById("abrirModal");
 // Hace referencia al elemento <span> que tiene la X que cierra la ventana
@@ -34,7 +34,7 @@ function getCookie(cname) {
         //character at 
         while (c.charAt(0) == ' ') {
             // eliminar espacios en blano
-           c = c.substring(1);            
+            c = c.substring(1);
         }
         if (c.indexOf(name) == 0) {
             //elimina la parte inicial hasta el 
@@ -71,19 +71,19 @@ fetch('/clientes/verify', {
         if (rol === "cliente") {
             loginSpan.innerHTML = `
       <div class="dropdown">
-          <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+          <button id="button-mainmenu-exp" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               ${data.nick_usuario}
           </button>
           <ul class="dropdown-menu">
                <li><a class="dropdown-item " href="../views/userProfile.html">Perfil</a></li>
-               <li><a class="dropdown-item " href="../views/productos0.1.html">Mis Productos</a></li>
+               <li><a class="dropdown-item " href="../views/myproducts.html">Mis Productos</a></li>
                <li><a class="dropdown-item " href="../views/acceso0.2.html">Salir</a></li>
           </ul>
       </div>
             `
             menuSpanCollapsed.innerHTML = `
-      <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+      <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
       aria-expanded="false">
       ${data.nick_usuario}
       </button>
@@ -91,7 +91,7 @@ fetch('/clientes/verify', {
               <li><a class="dropdown-item " href="../views/productos0.1.html">Productos</a></li>
               <li><a class="dropdown-item " href="./../index.html">Home</a></li>
               <li><a class="dropdown-item " href="../views/userProfile.html">Perfil</a></li>
-              <li><a class="dropdown-item " href="../views/productos0.1.html">Mis Productos</a></li>
+              <li><a class="dropdown-item " href="../views/myproducts.html">Mis Productos</a></li>
               <li><a class="dropdown-item " href="acceso0.2.html">Salir</a></li>
       </ul>     
             `
@@ -100,7 +100,7 @@ fetch('/clientes/verify', {
         } else if (rol === "admin") {
             loginSpan.innerHTML = `
       <div class="dropdown">
-          <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+          <button id="button-mainmenu-exp" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               ${data.nick_usuario}
           </button>
@@ -112,7 +112,7 @@ fetch('/clientes/verify', {
       </div>
             `
             menuSpanCollapsed.innerHTML = `
-      <button class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
+      <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button" data-bs-toggle="dropdown"
       aria-expanded="false">
       ${data.nick_usuario}
       </button>
@@ -125,6 +125,8 @@ fetch('/clientes/verify', {
       </ul>     
             `
         }
+        // automaticamente llama la funcion para comprobar si se cambio el color 
+        autoChangeColor()
     }
     )
 
@@ -202,7 +204,7 @@ function fetchClientesData(id) {
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" id="boton-datos-cambio" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Editar Datos </button>
 
                 `
@@ -218,7 +220,7 @@ function fetchClientesData(id) {
                          </div>
                          <div class="col-auto">
                              <span id="passwordHelpInline" class="form-text">
-                                 Tipo y Numero 
+                                 Numero 
                              </span>
                          </div>
                      </div>
@@ -293,8 +295,8 @@ function fetchClientesData(id) {
      
      
                      <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                         <button id="buton-patch-data-profile" class="btn btn-primary" >Enviar Cambios</button>
+                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                         <button id="buton-patch-data-profile" class="btn btn-success" >Enviar Cambios</button>
                      </div>
 
                      `
@@ -325,7 +327,7 @@ function fetchClientesData(id) {
                 formPhoto.innerHTML = `
                  <img id="previewFoto" src=${data[0].imagen} alt="Image Profile">
                     <br>
-                 <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#fotoModal"> Cambiar Foto </button>
+                 <button type="button" id="boton-foto-cambio" class="btn btn-dark mb-2" data-bs-toggle="modal" data-bs-target="#fotoModal"> Cambiar Foto </button>
 
                 <div class="modal fade" id="fotoModal" tabindex="-1" aria-labelledby="ModalLabelpwd" aria-hidden="true">
                     <div class="modal-dialog">
@@ -378,7 +380,7 @@ function fetchClientesData(id) {
                 spanDataClient.innerHTML = `
                 <!-- Button trigger modal -->
                 <p> No tienes información en tu perfil </p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button id="boton-datos-cambio" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Mis Datos </button>
                 <div id="span-button-changepwd">
                 </div>
@@ -397,7 +399,7 @@ function fetchClientesData(id) {
                     </div>
                     <div class="col-auto">
                         <span id="passwordHelpInline" class="form-text">
-                            Tipo y Numero 
+                            Numero 
                         </span>
                     </div>
                 </div>
@@ -473,8 +475,8 @@ function fetchClientesData(id) {
 
                 <div class="modal-footer">
                 <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="buton-patch-data-profile" class="btn btn-primary" >Enviar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button id="buton-patch-data-profile" class="btn btn-success" >Enviar</button>
                 </div>
                 `
 
@@ -501,18 +503,18 @@ function fetchClientesData(id) {
                 })
             }
 
-
+            //crea boton cambio de contraseñna 
             buttonChangePwd.innerHTML = `
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#pwdModal">
+            <button type="button" id="boton-contrasena-cambio" class="btn btn-dark mb-2" data-bs-toggle="modal" data-bs-target="#pwdModal">
             Cambiar Contraseña </button>
             `
-
+            //crea modal cambio de contraseñna
             spanDataClientPwd.innerHTML = `
             <div class="modal fade" id="pwdModal" tabindex="-1" aria-labelledby="ModalLabelpwd" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5>Cambiar contraseña</h5>
+                        <h5 >Cambiar contraseña</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -665,4 +667,58 @@ window.addEventListener("click", function (event) {
     }
 });
 
+
+
+
+//llama al local storage y setea el check
+function autoChangeColor() {
+
+    let verde = 'rgb(155, 238, 0)'
+    let cafe = 'rgb(72, 74, 38)'
+    let localMemory = localStorage.getItem("colorEstado")
+
+    if (localMemory == "true") {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = true
+        nuevoClaro(verde, cafe)
+    } else {
+        document.getElementsByClassName('switch')[0].firstElementChild.checked = false
+        normalObscuro(verde, cafe)
+    }
+}
+
+// funcion que alterna los colores principales     
+function changeColor() {
+    let activator = document.getElementsByClassName('switch')[0].firstElementChild.checked
+    //claros
+    if (activator) {
+        localStorage.setItem("colorEstado", "true");
+        autoChangeColor()    //normal oscuros 
+    } else {
+        localStorage.setItem("colorEstado", "false");
+        autoChangeColor()
+    }
+}
+
+function nuevoClaro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = verde
+    document.getElementById('navegacion-inicio').style.backgroundColor = verde
+    document.getElementById('textnav').style.color = cafe
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = cafe
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = cafe
+    }
+}
+
+
+function normalObscuro(verde, cafe) {
+    document.getElementById('navegacion-fin').style.backgroundColor = cafe
+    document.getElementById('navegacion-inicio').style.backgroundColor = cafe
+    document.getElementById('textnav').style.color = verde
+    if (document.getElementById('button-mainmenu')) {
+        document.getElementById('button-mainmenu').style.backgroundColor = verde
+    } if (document.getElementById('button-mainmenu-exp')) {
+        document.getElementById('button-mainmenu-exp').style.backgroundColor = verde
+    }
+}
 

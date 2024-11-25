@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UFT-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">-->
+    <link rel="icon" href="./../public/tico.png" type="image/x-icon">
+    <!--estilo CSS-->
+    <link rel="stylesheet" href="./../resources/estilotransaccion.css">
+    <!--bootstrap-->
+    <link href='../../bootstrap.min.css' rel="stylesheet">
+
+    <title>Terrarios Terraria</title>
+</head>
+
+
+
+<body>
+    <!--navigation bar-->
+    <nav id="navegacion-inicio" class="navbar navbar-expand-md px-3 sticky-top "
+        style="background-color:rgb(72, 74, 38) ;">
+        <a class="navbar-brand" style="color: rgb(255, 255, 255); " href="./../index.html">
+            <img id="img-nav" src="./../public/terramaz-01.png" width="60" height="60" alt="">
+            <p id="textnav"> Terrarios Terraria</p>
+        </a>
+
+        <!-- menu no collapsed -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="./../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="productos0.1.html">Productos</a>
+                </li>
+                <li class="nav-item" id="login-span">
+                    <a class="nav-link text-light" href="acceso0.2.html">Login</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- menu  collapsed -->
+        <div class="dropdown" id="dropdown-menu-collapsed">
+            <button id="button-mainmenu" class="btn btn-success dropdown-toggle m-2" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item " href="./../index.html">Home</a></li>
+                <li><a class="dropdown-item " href="../views/productos0.1.html">Productos</a></li>
+                <li><a class="dropdown-item " href="acceso0.2.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        <h1 class="m-2">Todos los Productos</h1>
+        <div id="all-productos-span">
+
+            <div class="item-container">
+                <p class="item-title">
+                    User
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Item
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Nombre
+                </p>
+            </div>
+
+            <div class="item-container">
+                <p class="item-title">
+                    Precio
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Cantidad
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Fecha
+                </p>
+            </div>
+            <div class="item-container">
+                <p class="item-title">
+                    Estado
+                </p>
+            </div>
+        </div>
+        <div id="all-productos-span-segundo">
+
+        </div>
+      
+        <!-- Ventana modal para textos de bD, por defecto no visiblel -->
+        <div id="ventanaModal" class="modalito">
+            <div class="contenido-modal">
+                <span class="close">&times;</span>
+                <h1 id="textoSpan"></h1>
+            </div>
+        </div>
+
+        <!--Whastapp container -->
+        <div class="container-wsp">
+
+            <a href="https://wa.me/573002732017?text=Deseo%20una%20Planta%20lok" target="_blank">
+                <img class="button" src="./../public/wsp100x100.png" alt="">
+            </a>
+        </div>
+
+        <!--Footer container -->
+        <div id="navegacion-fin" class="container-fluid text-center py-4" style="background-color:rgb(72, 74, 38);">
+            <div class="row">
+
+                <div class="col-5" style="font-family: fontSave1; color: aliceblue; font-size:  150%;">
+                    <p id="sigue"> ¡SÍGUENOS EN NUESTRAS REDES SOCIALES! </p>
+
+                    <a href="https://www.facebook.com/terrariosterraria" target="_blank">
+                        <img src="./../public/Face100x100.png" width="60" height="60" alt="">
+                    </a>
+
+                    <a href="https://www.instagram.com/terrariosterraria/" target="_blank">
+                        <img src="./../public/insta100x100.png" width="60" height="60" alt="">
+                    </a>
+                </div>
+                <div class="col" style="font-family: fontSave1; color: aliceblue;">
+
+                    <p class="parraf">
+                        ¿Tienés una consulta?</p>
+                    <img src="./../public/movil100x100.png" width="50" height="50" alt="">
+                    <p class="parraf">
+                        3002732017
+                    </p>
+
+
+                </div>
+
+                <!-- logo terraria -->
+                <div class="col">
+                    <br>
+                    <img src="./../public/terramaz-01.png" width="120" height="120" alt="">
+                </div>
+
+                <!-- switch para el cambio de color -->
+                <div class="col">
+                    <label class="switch">
+                        <input type="checkbox" onclick="changeColor()">
+                        <span class="slider round"></span>
+                    </label>
+                    <h6 style="color: aliceblue;">Color</h6>
+                </div>
+
+            </div>
+        </div>
+
+
+
+</body>
+
+
+
+<script src="./../resources/allproductsclients.js"></script>
+<script src="../../bootstrap.bundle.min.js"></script>
+
+</html>
