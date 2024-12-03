@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const multerMiddlewareProducts = require('./multerMiddle');  // Importa el middleware
+const multerMiddlewareProducts = require('./multerMiddleProd');  // Importa el middleware
 const productRouter = Router()
 const { productShowAll,
     productShowOne,

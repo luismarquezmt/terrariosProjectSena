@@ -21,3 +21,6 @@ Se actualiza imagen de perfil para cada usuario con multer se agrega middleware 
 
 25Nov24 v.1.02
 Se culmina proceso de carrito de compras, se cambian colores y se permite alternar entre los colores, se añade pagina de mis productos(user), de gestion de estados de entrega  y gestion(CRUD) de productos(admin) se finaliza el proyecto hasta nuevas instrucciones. 
+
+03Dec24 v.1.03
+Se hacen comprobaciones finales del app, se genera middlewares separados por archivo para cada apartado de foto por conflictos al nombrar.
