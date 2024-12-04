@@ -290,7 +290,7 @@ function organizeProducts(data) {
             </div>
             <div class="item-container">
                 <p class="item-textos-largos">
-                ${element.precio}
+                ${element.precio * element.cantidad}
                 </p>
             </div>
             <div class="item-container">

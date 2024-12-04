@@ -196,11 +196,11 @@ function organizeProducts(data) {
                 </p>
             </div>
     `
-    
+
     let segundoSpan = document.getElementById('mis-productos-span-segundo')
     data.forEach(element => {
         let formatCartPrice = new Intl.NumberFormat('co-CP', { style: 'currency', currency: 'COP' }).format(
-            (element.precio))
+            (element.precio * element.cantidad))
         // console.log(element);
         let spanProductos = `
             <div class="item-container">
@@ -218,7 +218,7 @@ function organizeProducts(data) {
             </div>
             <div class="item-container">
                 <p class="item-textos-largos">
-                ${formatCartPrice}
+                ${(formatCartPrice)}
                 </p>
             </div>
             <div class="item-container">
